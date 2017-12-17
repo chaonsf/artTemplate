@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/html" id="tpl">
+        <div>{$=msg$}</div>
+        <div>{$=hui$}</div>
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template-native.js"></script>
+<script>
+    template.config("openTag","{$");
+    template.config("closeTag","$}");
+    template.config("escape",false);/*这条是整体配置非转义输出，避免经常打#*/
+    var data={
+        msg:'fscza',
+        hui:"<em>倾斜了</em>"
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/html" id="tpl">
+        <h1>
+            <%=title%>  <!--template-native的语法规则不一样，=表示输出-->
+        </h1>
+        <ul>
+            <%for(var i=0;i<arr.length;i++){%>
+            <li><%=arr[i]%></li>
+            <%}%>        <!--循环-->
+        </ul>
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template-native.js"></script>
+<script>
+    var data={
+        title:"weiljdks",
+        arr:['apple','sjkk','hdjdk']
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>

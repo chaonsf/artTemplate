@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/html" id="tpl">
+        <ul>
+            <%for(var name in json){%>
+            <li><%=name%>----<%=json[name]%>
+                <%include("demo")%>
+            </li>
+            <%}%>        <!--循环-->
+
+        </ul>
+    </script>
+    <script type="text/html" id="demo">
+        <h1><%=title%></h1>
+
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template-native.js"></script>
+<script>
+    var data={
+        title:"sfad",
+        json:{
+            a:"apple",
+            b:"haj",
+            c:"jaj"
+        }
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>

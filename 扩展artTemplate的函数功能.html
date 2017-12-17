@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/html" id="tpl">
+        <h1><%=toDou(a)%></h1> <!--等号后面加个#号就可以，如果引入的template.js,就是{{#title}}-->
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template-native.js"></script>
+<script>
+    template.helper("toDou",function (a) {             /*接收俩个参数，第一个是函数的名字，第二个是回调函数*/
+        console.log(a);
+        return a.toFixed(2);
+    })
+    var data={
+          a:12
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>

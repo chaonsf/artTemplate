@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/html" id="tpl">
+        <ul><!--模板里面循环，既可以循环数组，也可以循环json数据-->
+
+            {{each json as value key}}
+            <li>{{value}}----{{key}}</li>
+            {{/each}}
+        </ul>
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template.js"></script>
+<script>
+    var data={
+       json:{
+           a:"apple",
+           b:"haj",
+           c:"jaj"
+       }
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>

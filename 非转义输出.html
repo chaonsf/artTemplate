@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/html" id="tpl">
+       <h1><%=#title%></h1> <!--等号后面加个#号就可以，如果引入的template.js,就是{{#title}}-->
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script src="js/template-native.js"></script>
+<script>
+    var data={
+       title:"<strong>我是被加粗了</strong>"
+    }
+    var obx=document.getElementById("box");
+    var shtml=template("tpl",data);//第一个是模板的id，第二个参数是需要渲染的数据
+    obx.innerHTML=shtml;
+
+</script>
+
+</html>
